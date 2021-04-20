@@ -16,6 +16,7 @@ ul, li {
 
 /* HEADER */
 
+
 .box-logo img {
     width: 50px;
 }
@@ -41,20 +42,18 @@ ul, li {
     width: 30px;
 }
 
-
-.box-film {
-    display: flex;
-    justify-content: space-between;
-    background-color: orange;
-}
-
 .film-card {
-    flex-wrap: wrap;
-    background-color: greenyellow;
+    max-width: 150px;
+    max-height: 200px;
+    font-size: 12px;
+    /*debug*/
+    background-color: orange;
     border: 1px solid black;
-    width: 100px;
-    height: 200px;
-    text-align: center;
-    font-size: 10px;
 }
+
+.box-film{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 
