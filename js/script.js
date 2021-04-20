@@ -1,12 +1,12 @@
     function initVue() {
 
-        var app = new Vue({
+         new Vue({
 
             el: '#app',
             data: {
-                search: 'matrix',
+                search: 'donnie darko',
                 movies: [],
-                grandezza_img: 'w342'
+                grandezza_img: 'w185'
 
             },
 
