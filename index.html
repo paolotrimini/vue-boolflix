@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>Boolflix</title>
-  <!-- font awesome -->
+    <link rel="icon" href="img/icona-netflix.jpg" type="image/png" />
+    <!-- font awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
   <!-- Font family-->
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -22,9 +23,65 @@
 </head>
 <body>
 
-  <div id="app" class="container">
+   <div id="app" class="container">
+     <!-- header-->
+     <div class="row">
+        <div class="col-12 nav-bar">
+          <!-- sezione logo-->
+         <div class="box-logo">
+           <a href="#"><img src="" alt="Logo Boolflix"></a>
+         </div>
+          <!-- left menu-->
+          <div class="left-menu">
+            <ul>
+              <li>Home</li>
+              <li>Serie tv</li>
+              <li>Film</li>
+              <li>Nuovi e popolari</li>
+              <li>La mia lista</li>
+            </ul>
+          </div>
+          <!-- right menu-->
+          <div class="right-menu">
+            <div class="box-search">
+              <input v-model="search" type="text" placeholder="Cerca..." >
+              <i class="fas fa-search"></i>
+                <button @click="searchMovie()">Search</button>
+            </div>
+          </div>
+         </div>
+     </div>
+     <!-- fine header-->
 
-  </div>
+     <!-- sezione film-->
+     <div class="row">
+       <div class="col-12 box-film">
+           <!-- film -->
+         <div v-for="movie in movies" class="col-2 film-card">
+           <p>Titolo: {{ movie.title }}</p>
+           <p>Titolo originale: {{ movie.original_title }}</p>
+             <p>
+                 Lingua:
+                 <img v-if="isFlaggable(movie.original_language)" :src="'img/' + movie.original_language + '.png'" alt="" class="lang">
+                 <span v-else="">{{ movie.original_language }}</span>
+             </p>
+             <p>Voto: {{movie.vote_average}}</p>
+         </div>
+           <!-- serie tv -->
+           <div v-for="serie in series" class="col-2 film-card">
+               <p>Titolo: {{ serie.title }}</p>
+               <p>Titolo originale: {{ serie.original_title }}</p>
+               <p>
+                   Lingua:
+                   <img v-if="isFlaggable(serie.original_language)" :src="'img/' + serie.original_language + '.png'" alt="" class="lang">
+                   <span v-else="">{{ serie.original_language }}</span>
+               </p>
+               <p>Voto: {{serie.vote_average}}</p>
+           </div>
+       </div>
+     </div>
+
+   </div>
 
 </body>
 </html>

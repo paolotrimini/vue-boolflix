@@ -6,7 +6,55 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    color: black;
     /*debug*/
-    background-color: darkorange;
+    /*background-color: darkorange;*/
 }
+
+ul, li {
+    list-style-type: none;
+}
+
+/* HEADER */
+
+.box-logo img {
+    width: 50px;
+}
+
+.nav-bar {
+    background-color: lightblue;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-menu ul {
+    display: flex;
+}
+
+.left-menu ul li {
+    padding: 0 10px;
+}
+
+
+/* MAIN */
+
+.lang {
+    width: 30px;
+}
+
+
+.box-film {
+    display: flex;
+    justify-content: space-between;
+    background-color: orange;
+}
+
+.film-card {
+    flex-wrap: wrap;
+    background-color: greenyellow;
+    border: 1px solid black;
+    width: 100px;
+    height: 200px;
+    text-align: center;
+    font-size: 10px;
+}
+
