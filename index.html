@@ -97,7 +97,7 @@
 
                    <div v-for="serie in series" class="col-12 film-card">
                        <p>Titolo: {{ serie.name }}</p>
-                       <p>Titolo originale: {{ serie.original_title }}</p>
+                       <p>Titolo originale: {{ serie.original_name }}</p>
                        <p>
                            Lingua:
                            <img v-if="isFlaggable(serie.original_language)" :src="'img/' + serie.original_language + '.png'" alt="" class="lang">
