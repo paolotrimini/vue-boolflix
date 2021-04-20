@@ -5,7 +5,8 @@
             el: '#app',
             data: {
                 search: 'matrix',
-                movies: []
+                movies: [],
+                grandezza_img: 'w342'
 
             },
 
