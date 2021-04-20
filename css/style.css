@@ -6,6 +6,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    min-height: 200vh;
     /*debug*/
     /*background-color: darkorange;*/
 }
@@ -38,24 +39,34 @@ ul, li {
 
 /* MAIN */
 
-.lang {
-    width: 30px;
-}
-
-.film-card {
+/*.film-card {
     max-width: 150px;
     max-height: 200px;
     font-size: 12px;
-    /*debug*/
+    !*debug*!
     background-color: orange;
     border: 1px solid black;
     margin: 7px;
-}
+}*/
 
+
+
+/*
 .box-film{
     display: flex;
     flex-wrap: wrap;
 }
+*/
+
+
+.lang {
+    width: 30px;
+}
+
+#card .card {
+
+}
+
 
 
 
