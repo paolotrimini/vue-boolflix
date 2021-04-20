@@ -6,6 +6,7 @@
             data: {
                 search: 'donnie darko',
                 movies: [],
+                series: [],
                 grandezza_img: 'w185'
 
             },

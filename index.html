@@ -65,8 +65,8 @@
 
                  <div v-for="movie in movies" class="col-lg-2 col-md-6 film-card">
                      <div class="box-img front">
-                         <img v-if="movie.poster_path !=null" :src="'https://image.tmdb.org/t/p/' + grandezza_img + movie.poster_path" :alt="movie.title">
-                         <img v-else="img/img-mancante.png" src="" alt="">
+                       <!--  <img v-if="movie.poster_path !=null" :src="'https://image.tmdb.org/t/p/' + grandezza_img + movie.poster_path" :alt="movie.title">
+                         <img v-else="img/img-mancante.png" src="" alt="">-->
                      </div>
                    <p>Titolo: {{ movie.title }}</p>
                    <p>Titolo originale: {{ movie.original_title }}</p>
@@ -96,7 +96,7 @@
                    <!-- serie tv -->
 
                    <div v-for="serie in series" class="col-12 film-card">
-                       <p>Titolo: {{ serie.title }}</p>
+                       <p>Titolo: {{ serie.name }}</p>
                        <p>Titolo originale: {{ serie.original_title }}</p>
                        <p>
                            Lingua:
