@@ -49,6 +49,7 @@ ul, li {
     /*debug*/
     background-color: orange;
     border: 1px solid black;
+    margin: 7px;
 }
 
 .box-film{

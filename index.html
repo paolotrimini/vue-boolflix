@@ -56,32 +56,46 @@
      <!-- fine header-->
 
      <!-- sezione film-->
-     <div class="row">
-       <div class="col-12 box-film">
-           <!-- film -->
-         <div v-for="movie in movies" class="col-12 film-card">
-           <p>Titolo: {{ movie.title }}</p>
-           <p>Titolo originale: {{ movie.original_title }}</p>
-             <p>
-                 Lingua:
-                 <img v-if="isFlaggable(movie.original_language)" :src="'img/' + movie.original_language + '.png'" alt="" class="lang">
-                 <span v-else="">{{ movie.original_language }}</span>
-             </p>
-             <p>Voto: {{movie.vote_average}}</p>
+     <section id="card">
+         <div class="container">
+             <div class="row">
+               <div class="col-lg-12 box-film">
+
+                   <!-- film -->
+
+                 <div v-for="movie in movies" class="col-lg-2 col-md-6 film-card">
+                   <p>Titolo: {{ movie.title }}</p>
+                   <p>Titolo originale: {{ movie.original_title }}</p>
+                     <p>
+                         Lingua:
+                         <img v-if="isFlaggable(movie.original_language)" :src="'img/' + movie.original_language + '.png'" alt="" class="lang">
+                         <span v-else="">{{ movie.original_language }}</span>
+                     </p>
+                     <p>Voto: {{movie.vote_average}}</p>
+                 </div>
+               </div>
+             </div>
          </div>
-           <!-- serie tv -->
-           <div v-for="serie in series" class="col-12 film-card">
-               <p>Titolo: {{ serie.title }}</p>
-               <p>Titolo originale: {{ serie.original_title }}</p>
-               <p>
-                   Lingua:
-                   <img v-if="isFlaggable(serie.original_language)" :src="'img/' + serie.original_language + '.png'" alt="" class="lang">
-                   <span v-else="">{{ serie.original_language }}</span>
-               </p>
-               <p>Voto: {{serie.vote_average}}</p>
-           </div>
-       </div>
-     </div>
+         <div class="container">
+             <div class="row">
+                 <div class="col-lg-12 box-film">
+
+                   <!-- serie tv -->
+
+                   <div v-for="serie in series" class="col-12 film-card">
+                       <p>Titolo: {{ serie.title }}</p>
+                       <p>Titolo originale: {{ serie.original_title }}</p>
+                       <p>
+                           Lingua:
+                           <img v-if="isFlaggable(serie.original_language)" :src="'img/' + serie.original_language + '.png'" alt="" class="lang">
+                           <span v-else="">{{ serie.original_language }}</span>
+                       </p>
+                       <p>Voto: {{serie.vote_average}}</p>
+                   </div>
+                 </div>
+             </div>
+         </div>
+     </section>
 
    </div>
 
