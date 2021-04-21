@@ -17,7 +17,7 @@ ul, li {
 }
 
 h3 {
-    font-size: 16px;
+    font-size: 12px;
 }
 
 /* HEADER */
@@ -164,7 +164,7 @@ main #card .box-card .box-information {
 }
 
 main #card .box-card .box-language img {
-    width: 25px;
+    width: 20px;
 }
 
 main #card .box-card .box-vote i {

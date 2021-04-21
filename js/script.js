@@ -45,8 +45,8 @@
 
                    getFlag: function(lang){
                        switch(lang) {
-                           case 'en': return 'en2.png';
-                           case 'it': return 'it2.png';
+                           case 'en': return 'en.png';
+                           case 'it': return 'it.png';
                        }
                        return lang;
                    }
