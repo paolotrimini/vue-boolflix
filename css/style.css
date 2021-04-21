@@ -129,7 +129,7 @@ main #card .box-card .box-img img {
     object-fit: cover;
 }
 
-/* box informazioni film/serie tv*/
+/* CARD FILM/SERIE TV */
 
 main #card .card {
     border: none;
@@ -161,14 +161,18 @@ main #card .box-card .box-information {
     height: 100%;
     padding: 5px;
     position: absolute;
-    overflow-y: scroll;
 }
 
 main #card .box-card .box-language img {
     width: 25px;
 }
 
-/* sezione hover */
+main #card .box-card .box-vote i {
+    color: darkgoldenrod;
+}
+
+
+/* HOVER */
 
 main #card .card:hover .front-card {
     transform: rotateY(-180deg);

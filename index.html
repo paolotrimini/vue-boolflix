@@ -25,7 +25,7 @@
 
    <div id="app" class="container">
 
-     <!-- header-->
+     <!-- HEADER -->
        <header>
            <div class="container-menu">
                <div class="menu-left">
@@ -58,21 +58,17 @@
                </div>
            </div>
        </header>
-       <!-- fine header-->
-
-     <!-- sezione film / serie tv-->
+     <!-- MAIN-->
      <main>
          <section id="card">
              <div class="container">
                  <div class="row">
-
-                       <!-- film -->
-
+                       <!-- FILM -->
                      <div v-for="movie in movies" class="col-lg-2 col-md-6">
                          <div class="box-card card">
                              <div class="box-img front-card">
                                  <img v-if="movie.poster_path !=null" :src="'https://image.tmdb.org/t/p/' + imgSize + movie.poster_path" :alt="movie.title">
-                                 <img v-else="img/img-mancante.png" src="" alt="">
+                                 <img v-else src="img/img-mancante.png" alt="">
                              </div>
                              <div class="box-information back-card">
                                  <div class="box-title">
@@ -96,21 +92,21 @@
                                      <p v-else>0 voti</p>
                                      <p>Voto: {{movie.vote_average}}</p>
                                  </div>
-                             </div> <!-- fine BOX-INFORMATION-->
+                             </div>
                          </div>
-                     </div> <!-- fine film -->
+                     </div>
                  </div>
              </div>
-          <!-- fine CARD-->
+          <!-- fine FILM -->
 
-
+          <!-- SERIE TV -->
        <div class="container">
              <div class="row">
                  <div v-for="serie in series" class="col-lg-2 col-md-6">
                      <div class="box-card card">
                          <div class="box-img front-card">
                              <img v-if="serie.poster_path !=null" :src="'https://image.tmdb.org/t/p/' + imgSize + serie.poster_path" :alt="serie.name">
-                             <img v-else="img/img-mancante.png" src="" alt="">
+                             <img v-else src="img/img-mancante.png" alt="">
                          </div>
                          <div class="box-information back-card">
                              <div class="box-title">
@@ -134,11 +130,12 @@
                                  <p v-else>0 voti</p>
                                  <p>Voto: {{serie.vote_average}}</p>
                              </div>
-                         </div> <!-- fine BOX-INFORMATION-->
+                         </div>
                      </div>
                  </div>
              </div>
          </div>
+          <!-- fine SERIE TV -->
        </section>
      </main>
    </div>
