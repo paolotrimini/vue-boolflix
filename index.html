@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <!-- bootstrap v4 -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <!-- vue -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <!-- vue -->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <!-- axios -->
   <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
@@ -24,40 +24,43 @@
 <body>
 
    <div id="app" class="container">
+
      <!-- header-->
-      <header>
-         <div class="container-menu">
-             <div class="row">
-                <div class="col-12 nav-bar">
-                  <!-- sezione logo-->
-                 <div class="box-logo">
-                   <a href="#"><img src="" alt="Logo Boolflix"></a>
-                 </div>
-                  <!-- left menu-->
-                  <div class="left-menu">
-                    <ul>
-                      <li>Home</li>
-                      <li>Serie tv</li>
-                      <li>Film</li>
-                      <li>Nuovi e popolari</li>
-                      <li>La mia lista</li>
-                    </ul>
-                  </div>
-                  <!-- right menu-->
-                  <div class="right-menu">
-                    <div class="box-search">
-                      <input v-model="search" type="text" placeholder="Cerca..." >
-                      <i class="fas fa-search"></i>
-                        <button @click="searchMovie()">Search</button>
-                    </div>
-                  </div>
-                 </div>
-             </div>
-         </div> <!-- fine container menu -->
-      </header>
+       <header>
+           <div class="container-menu">
+               <div class="menu-left">
+                   <div class="box-logo">
+                       <a href="#"><img src="img/netflix-logo.png" alt="Logo Boolfix"></a>
+                   </div>
+                   <div class="box-menu">
+                       <ul>
+                           <li>Home</li>
+                           <li>Serie tv</li>
+                           <li>Film</li>
+                           <li>Nuovi e popolari</li>
+                           <li>La mia lista</li>
+                       </ul>
+                   </div>
+               </div>
+               <div class="menu-right">
+                   <div class="box-search">
+                       <input v-model="search" type="text" placeholder="Cerca..." class="right-input">
+                       <i @click="searchMovie()" class="fas fa-search"></i>
+                   </div>
+                   <div class="box-profile">
+                       <div class="box-notify">
+                           <i class="fas fa-bell"></i>
+                       </div>
+                       <div class="box-img-profile">
+                           <img src="img/paul.jpg" alt="img utente">
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </header>
        <!-- fine header-->
 
-     <!-- sezione film-->
+     <!-- sezione film / serie tv-->
      <main>
          <section id="card">
              <div class="container">
@@ -67,16 +70,16 @@
 
                      <div v-for="movie in movies" class="col-lg-2 col-md-6">
                          <div class="box-card card">
-                             <div class="box-img front">
-                               <!--  <img v-if="movie.poster_path !=null" :src="'https://image.tmdb.org/t/p/' + grandezza_img + movie.poster_path" :alt="movie.title">
-                                 <img v-else="img/img-mancante.png" src="" alt="">-->
+                             <div class="box-img front-card">
+                                 <img v-if="movie.poster_path !=null" :src="'https://image.tmdb.org/t/p/' + imgSize + movie.poster_path" :alt="movie.title">
+                                 <img v-else="img/img-mancante.png" src="" alt="">
                              </div>
-                             <div class="box-information">
+                             <div class="box-information back-card">
                                  <div class="box-title">
-                                    <p>Titolo: {{ movie.title }}</p>
+                                    <h3><strong>Titolo: </strong>{{ movie.title }}</h3>
                                  </div>
                                  <div class="box-original-title">
-                                     <p>Titolo originale: {{ movie.original_title }}</p>
+                                     <p><strong>Titolo originale:</strong> {{ movie.original_title }}</p>
                                  </div>
                                      <div class="box-language">
                                      <p>
@@ -90,37 +93,54 @@
                                          <i v-for="i in Math.ceil(movie.vote_average / 2 )" class="fas fa-star"></i>
                                          <i v-for="i in ( 5 - Math.ceil(movie.vote_average / 2 ))" class="far fa-star"></i>
                                      </div>
+                                     <p v-else>0 voti</p>
                                      <p>Voto: {{movie.vote_average}}</p>
                                  </div>
                              </div> <!-- fine BOX-INFORMATION-->
                          </div>
-                     </div>
+                     </div> <!-- fine film -->
                  </div>
              </div>
-         </section> <!-- fine CARD-->
-     </main>
+          <!-- fine CARD-->
+
 
        <div class="container">
              <div class="row">
-                 <div class="col-lg-12 box-film">
-
-                   <!-- serie tv -->
-
-                   <div v-for="serie in series" class="col-12 film-card">
-                       <p>Titolo: {{ serie.name }}</p>
-                       <p>Titolo originale: {{ serie.original_name }}</p>
-                       <p>
-                           Lingua:
-                           <img v-if="isFlaggable(serie.original_language)" :src="'img/' + serie.original_language + '.png'" alt="" class="lang">
-                           <span v-else="">{{ serie.original_language }}</span>
-                       </p>
-                       <p>Voto: {{serie.vote_average}}</p>
-                   </div>
+                 <div v-for="serie in series" class="col-lg-2 col-md-6">
+                     <div class="box-card card">
+                         <div class="box-img front-card">
+                             <img v-if="serie.poster_path !=null" :src="'https://image.tmdb.org/t/p/' + imgSize + serie.poster_path" :alt="serie.name">
+                             <img v-else="img/img-mancante.png" src="" alt="">
+                         </div>
+                         <div class="box-information back-card">
+                             <div class="box-title">
+                                 <h3><strong>Titolo: </strong>{{ serie.name }}</h3>
+                             </div>
+                             <div class="box-original-title">
+                                 <p><strong>Titolo originale:</strong> {{ serie.original_title }}</p>
+                             </div>
+                             <div class="box-language">
+                                 <p>
+                                     Lingua:
+                                     <img v-if="isFlaggable(serie.original_language)" :src="'img/' + serie.original_language + '.png'" alt="" class="lang">
+                                     <span v-else="">{{ serie.original_language }}</span>
+                                 </p>
+                             </div>
+                             <div class="box-vote">
+                                 <div class="stars" v-if="Math.ceil(serie.vote_average / 2 != 0)">
+                                     <i v-for="i in Math.ceil(serie.vote_average / 2 )" class="fas fa-star"></i>
+                                     <i v-for="i in ( 5 - Math.ceil(serie.vote_average / 2 ))" class="far fa-star"></i>
+                                 </div>
+                                 <p v-else>0 voti</p>
+                                 <p>Voto: {{serie.vote_average}}</p>
+                             </div>
+                         </div> <!-- fine BOX-INFORMATION-->
+                     </div>
                  </div>
              </div>
          </div>
-
-
+       </section>
+     </main>
    </div>
 
 </body>

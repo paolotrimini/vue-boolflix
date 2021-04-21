@@ -2,56 +2,56 @@
 
          new Vue({
 
-            el: '#app',
-            data: {
-                search: 'donnie darko',
-                movies: [],
-                series: [],
-                grandezza_img: 'w185'
+                el: '#app',
+                data: {
+                    search: 'donnie darko',
+                    movies: [],
+                    series: [],
+                    imgSize: 'w342'
 
-            },
+                },
 
-           methods: {
+               methods: {
 
-               searchMovie: function() {
+                   searchMovie: function() {
 
-                   const params = {
-                       params: {
-                           'api_key': '7ff024206457c3360e440b86eb061a79',
-                           'query': this.search,
-                           'language': 'it'
-                       }
-                   };
+                       const params = {
+                           params: {
+                               'api_key': '7ff024206457c3360e440b86eb061a79',
+                               'query': this.search,
+                               'language': 'it'
+                           }
+                       };
 
-                   axios.get('https://api.themoviedb.org/3/search/movie',params)
-                       .then(data => {
-                           this.movies = data.data.results;
-                           console.log(this.movies);
+                       axios.get('https://api.themoviedb.org/3/search/movie',params)
+                           .then(data => {
+                               this.movies = data.data.results;
+                               console.log(this.movies);
+                               });
+
+                       axios.get('https://api.themoviedb.org/3/search/tv',params)
+                           .then(data => {
+                               this.series = data.data.results;
+                               console.log(this.series);
                            });
 
-                   axios.get('https://api.themoviedb.org/3/search/tv',params)
-                       .then(data => {
-                           this.series = data.data.results;
-                           console.log(this.series);
-                       });
+                   }, // fine searchMovie()
 
-               }, // fine searchMovie()
+                   isFlaggable: function(lang){
+                       if(lang == 'en' || lang == 'it')
+                           return true;
+                       return false;
+                   },
 
-               isFlaggable: function(lang){
-                   if(lang == 'en' || lang == 'it')
-                       return true;
-                   return false;
-               },
-
-               getFlag: function(lang){
-                   switch(lang) {
-                       case 'en': return 'en.png';
-                       case 'it': return 'it.png';
+                   getFlag: function(lang){
+                       switch(lang) {
+                           case 'en': return 'en2.png';
+                           case 'it': return 'it2.png';
+                       }
+                       return lang;
                    }
-                   return lang;
-               }
 
-           } // fine methods
+               } // fine methods
 
         }) // fine newVue
 
